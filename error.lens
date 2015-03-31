@@ -1,0 +1,13 @@
+<koken:include file="layouts/header.html" />
+
+<div id="main">
+
+	<b>Error:</b> {{ routed_variables.code }}
+<p>
+<br>
+<span class="span6">
+Pracuje se na tom! Pokud avšak tento error vidíte po několikáte a příjde Vám, že se na tom nepracuje, určitě mi napište!
+</span>
+</div>
+
+<koken:include file="layouts/footer.html" />

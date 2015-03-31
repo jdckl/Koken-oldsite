@@ -1,0 +1,42 @@
+<koken:if true="pjax">
+	<koken:title />
+<koken:else>
+	<koken:include file="layouts/header.html" />
+</koken:if>
+
+<div id="main" class="animated fadeInDown">
+
+<koken:load limit="10">
+
+	<koken:loop>
+
+		<article>
+<h1>
+		<koken:link>
+			{{ title }}
+		</koken:link>
+	</h1>
+	<p><i class="kicon-text-time"></i> <koken:time class="publish-date" show="date" />&nbsp;&nbsp;&nbsp;&nbsp;</p>
+			{{ essay.excerpt }}
+			<p>
+<footer>
+<span class="fui-play-2"></span>&nbsp;&nbsp;<koken:link>Celý článek</koken:link>&nbsp;&nbsp;
+<span class="fui-comment"></span>&nbsp;&nbsp;<koken:link url="{{ essay.url }}#disqus_thread">Komentáře</koken:link>
+</footer>
+		</article>
+
+	</koken:loop>
+
+	<koken:else>
+
+	No essays found. Create some in Text.
+
+</koken:load>
+
+</div>
+
+<koken:if true="pjax">
+	<script>$K.ready();</script>
+<koken:else>
+	<koken:include file="layouts/footer.html" />
+</koken:not>

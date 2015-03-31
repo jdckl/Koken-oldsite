@@ -1,0 +1,143 @@
+<koken:loop>
+<div class="itm">
+<div id="content-{{ id }}" class="item">
+
+	<div class="media animated fadeInDown">
+			<koken:content_image>
+				<span class="wrap" data-koken-ignore-responsive="true">
+
+					<koken:if true="settings.show_share">
+
+						<div class="share_content">
+
+							<span class="content-share share_button"><i></i></span>
+
+							<div class="kshare">
+								<input type="text" class="kshare-input" value="{{ content.url }}" />
+								<ul class="kshare-items">
+							    	<li>
+							   			 <a target="_blank" href="https://www.facebook.com/sharer.php?u={{ content.url }}" class="share-facebook"><i class="kicon-share-facebook"></i></a>
+							   		</li>
+							   		<li>
+							    		<a target="_blank" href="http://pinterest.com/pin/create/button/?url={{ content.presets.large.url }}" class="share-pinterest"><i class="kicon-share-pinterest"></i></a>
+							    	</li>
+							    	<li>
+							    		<a target="_blank" href="https://plus.google.com/share?url={{ content.url }}" class="share-google"><i class="kicon-share-gplus"></i></a>
+							    	</li>
+							    </ul>
+					    	</div>
+
+					    </div>
+
+					</koken:if>
+
+					<koken:if true="settings.show_img_spinner">
+
+						<koken:if true="settings.link_to_lightbox">
+							<koken:link lightbox="true">
+								<koken:img lazy="true" fade="true" />
+							</koken:link>
+						<koken:else>
+
+							<koken:img lazy="true" fade="true" />
+
+						</koken:if>
+
+					<koken:else>
+
+						<koken:if true="settings.link_to_lightbox">
+
+							<koken:link lightbox="true"><koken:img lazy="true" fade="true" class="nospin" /></koken:link>
+
+						<koken:else>
+
+							<koken:img lazy="true" fade="true" class="nospin" />
+
+						</koken:if>
+
+					</koken:if>
+
+				</span>
+			
+			</koken:content_image>
+			
+		<koken:content_video>
+
+			<koken:video />
+
+		</koken:content_video>
+
+		<div class="media-meta">
+
+			<koken:if true="settings.show_exif">
+				<koken:exif>
+					<ol class="exif">
+						<koken:not empty="exif.aperture">
+							<li>
+								{{ exif.aperture }}
+							</li>
+						</koken:not>
+						<koken:not empty="exif.exposure">
+							<li>
+								{{ exif.exposure }}
+							</li>
+						</koken:not>
+						<koken:not empty="exif.focal_length">
+							<li>
+								{{ exif.focal_length }}
+							</li>
+						</koken:not>
+						<koken:not empty="exif.iso_speed_ratings">
+							<li>
+								{{ exif.iso_speed_ratings }}
+							</li>
+		    		 </koken:not>
+		    		</ol>
+				</koken:exif>
+			</koken:if>
+
+		</div>
+
+		<span class="text">
+				<h3>
+					{{ content.title | content.filename }}
+				</h3>
+
+				<koken:not empty="content.caption">
+					{{ content.caption paragraphs="true" }}
+				</koken:not>
+
+		</span>
+
+
+
+	</div> <!-- close .media -->
+
+</div> <!-- close .item -->
+
+</div>
+</koken:loop>
+
+<koken:keyboard_scroll element=".item" />
+
+<koken:if true="settings.show_strip">
+
+<div id="strip">
+
+	<ol>
+
+		<koken:loop>
+
+			<li>
+
+				<a href="#content-{{ id }}"></a>
+
+			</li>
+
+		</koken:loop>
+
+	</ol>
+
+</div> <!-- close #strip -->
+
+</koken:if>

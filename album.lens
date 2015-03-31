@@ -1,0 +1,52 @@
+<koken:if true="pjax">
+	<koken:title />
+<koken:else>
+	<koken:include file="layouts/header.html" />
+</koken:if>
+<div id="main">
+
+	<koken:load>
+		<koken:head>
+			<meta property="og:site_name" content="{{ site.title }}" />
+			<meta property="og:title" content="{{ album.title strip_html="true" }}" />
+			<meta property="og:description" content="{{ album.summary | album.description strip_html="true" }}" />
+			<meta property="og:type" content="website" />
+			<koken:not empty="profile.twitter">
+				<meta name="twitter:card" content="gallery" />
+				<meta name="twitter:site" content="@{{ profile.twitter }}" />
+				<meta name="twitter:creator" content="@{{ profile.twitter }}" />
+			</koken:not>
+			<koken:covers minimum="4">
+				<koken:loop>
+					<meta property="og:image" content="{{ content.presets.medium.url }}" />
+					<koken:not empty="profile.twitter">
+						<meta name="twitter:image{{ index }}" content="{{ content.presets.medium.cropped.url }}">
+					</koken:not>
+				</koken:loop>
+			</koken:covers>
+		</koken:head>
+<header class="index">
+					<h1>{{ album.title }}</h1>
+					{{ album.description paragraphs="true" }}
+				</header>
+		<koken:if true="settings.show_album_info">
+
+			<koken:if exists="album">
+				
+			</koken:if>
+
+		</koken:if>
+<div id="container">
+		<koken:include file="layouts/content_loop.html" />
+</div>
+	</koken:load>
+
+</div>
+
+<koken:if true="pjax">
+	<script>
+		pjaxReload();
+	</script>
+<koken:else>
+	<koken:include file="layouts/footer.html" />
+</koken:not>

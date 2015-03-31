@@ -1,0 +1,30 @@
+
+		</div>
+
+	</div>
+
+	<koken:if true="settings.show_share_link"><koken:asset file="js/kshare.js" /></koken:if>
+
+	<script>
+	$(document).ready(function() {
+		$('#mob-menu').sidr({
+			name: 'sidr-left'
+		});
+	});
+	</script>
+
+    <koken:asset file="js/jquery.dropkick-1.0.0.js" />
+    <koken:asset file="js/projekktor.min.js" />
+    <koken:asset file="css/theme/style.css" />
+     <script type="text/javascript">
+         $(document).ready(function() {
+               projekktor('video');
+         })
+    </script>
+    <!--[if lt IE 8]>
+     <koken:asset file="js/icon-font-ie7.js" />
+     <koken:asset file="js/icon-font-ie7-24.js" />
+    <![endif]-->
+
+</body>
+</html>

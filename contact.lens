@@ -1,0 +1,25 @@
+<koken:if true="pjax">
+	<koken:title />
+<koken:else>
+	<koken:include file="layouts/header.html" />
+</koken:if>
+
+	<koken:load>
+
+	<div id="main" class="animated fadeInDown">
+
+		<article>
+
+	<koken:include file="layouts/contact.php" />
+
+		</article>
+
+	</div>
+
+	</koken:load>
+
+<koken:if true="pjax">
+	<script>$K.ready();</script>
+<koken:else>
+	<koken:include file="layouts/footer.html" />
+</koken:not>
